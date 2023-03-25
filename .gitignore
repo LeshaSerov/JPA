@@ -185,4 +185,5 @@ build/
 
 mvnw
 mvnw.cmd
+.gitattributes
 .PVS-Studio/
