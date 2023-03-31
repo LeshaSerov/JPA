@@ -1,19 +1,21 @@
 package com.example.repository.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Setter
 @Getter
+@RequiredArgsConstructor
+@NoArgsConstructor
 public class Number {
     @Id
-    private Long numberId;
-    private String name;
+    private Long id;
+    @NonNull
+    private String value;
 
-//    @OneToOne(optional = false)
-//    private Car car;
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "id")
+    private Car car;
 }

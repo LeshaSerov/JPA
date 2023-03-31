@@ -1,21 +1,30 @@
 package com.example.repository.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Set;
 
 @Entity
 @Setter
 @Getter
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class Owner {
     @Id
-    private Long ownerId;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
+    @NonNull
+    String name;
 
-//    @ManyToMany
-//    private Set<Car> cars;
+    @ManyToMany(mappedBy = "owners")
+    private Set<Car> cars;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Car)) return false;
+        return id != null && id.equals(((Owner) o).getId());
+    }
 }

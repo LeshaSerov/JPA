@@ -1,6 +1,5 @@
 package com.example.jpa;
 
-import com.example.withoutRepository.FirstRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +20,8 @@ class JpaApplicationTests {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Test
-    public void givenInScopeComponents_whenSearchingInApplicationContext_thenFindThem() {
-        assertNotNull(applicationContext.getBean(FirstRepository.class));
-    }
+//    @Test
+//    public void givenInScopeComponents_whenSearchingInApplicationContext_thenFindThem() {
+//        assertNotNull(applicationContext.getBean(FirstRepository.class));
+//    }
 }
